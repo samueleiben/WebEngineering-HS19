@@ -12,24 +12,22 @@ class CalculatorSpec extends GebSpec {
 
     void "Basic calculation"() {
         when:
-            go '/static/GradeCalculator.html'
+        go '/static/GradeCalculator.html'
         then:
-        	title == "Grade Calculator"
+        title == "Grade Calculator"
 
         when: "set valid input"
-            $("form").en   = 5
-            $("form").exam = 6
-            $("input", type: "submit").click()
+        $("form").en = 5
+        $("form").exam = 6
+        $("input", type: "submit").click()
 
         then: "Result Page is displayed"
-            title == "Average"
-//  todo 1: un-comment and make the test run
-//            $("output").text() == "5.5"
-
+        title == "Average"
+        $("output").text() == "5.5"
 
         when: "click on back link"
-            $("a", text: "calculator").click()
+        $("a", text: "calculator").click()
         then:
-            title == "Grade Calculator"
+        title == "Grade Calculator"
     }
 }
