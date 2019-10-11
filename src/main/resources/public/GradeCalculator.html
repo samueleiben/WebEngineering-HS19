@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>
         Grade Calculator
@@ -8,10 +8,18 @@
 <body>
 <form action="/calculator/calc" method="GET">
     <div class="row">
-        <label for="en">continuous assessment grade</label> <input id="en" name="en" type="number">
+        <label for="en">continuous assessment grade</label>
+        <input id="en" name="en" type="number"
+               oninvalid="document.getElementById('invalid-en-message').style.display = 'block'"
+               oninput="document.getElementById('invalid-en-message').style.display = 'none'">
+        <div id="invalid-en-message" style="display: none; color: red;">Entered invalid value for en</div>
     </div>
     <div class="row">
-        <label for="exam">final exam</label> <input id="exam" name="exam" type="number">
+        <label for="exam">final exam</label>
+        <input id="exam" name="exam" type="number"
+               oninvalid="document.getElementById('invalid-exam-message').style.display = 'block'"
+               oninput="document.getElementById('invalid-exam-message').style.display = 'none'">
+        <div id="invalid-exam-message" style="display: none; color: red;">Entered invalid value for exam</div>
     </div>
     <div class="row">
         <input type="submit">

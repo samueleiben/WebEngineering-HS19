@@ -29,5 +29,14 @@ class CalculatorSpec extends GebSpec {
         $("a", text: "calculator").click()
         then:
         title == "Grade Calculator"
+
+        when: "set invalid input"
+        $("form").en = "e"
+        $("form").exam = "e"
+        $("input", type: "submit").click()
+
+        then: "Page shows error message"
+        title == "Grade Calculator"
+        $("#invalid-en-message").css("display") == "block"
     }
 }
