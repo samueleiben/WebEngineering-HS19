@@ -29,7 +29,24 @@ class MultiplicationCircleSpec extends GebSpec {
             $("form").segmentCount == "10"
     }
 
+    void "Changing table base count with JavaScript"() {
+        when:
+        go '/MultiplicationCircle.html'
+        then:
+        title == "Multiplication Circle"
+        $("form").tableBase == "2"
 
-//  add a test that checks the form for the table base
+        when: "click to bump value up"
+        $("#tableBaseUp").click()
+
+        then: "the field is bumped up"
+        $("form").tableBase == "3"
+
+        when: "click to bump value down"
+        $("#tableBaseDown").click()
+
+        then: "the field is bumped up"
+        $("form").tableBase == "2"
+    }
 
 }

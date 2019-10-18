@@ -21,7 +21,7 @@
 <form action="/temperatureCalculator/tempCalc" method="get">
     <fieldset class="form padded">
 
-        %{-- <g:render template="form_row" contextPath="" name="fahrenheit" label="Fahrenheit" model="${calculatorInstance}" /> --}%
+        %{-- <g:render template="/templates/form_row" name="fahrenheit" label="Fahrenheit" model="${calculatorInstance}" /> --}%
         <tmpl:form_row name="fahrenheit" label="Fahrenheit" model="${calculatorInstance}" />
 
         <div>

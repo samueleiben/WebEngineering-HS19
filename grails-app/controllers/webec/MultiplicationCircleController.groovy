@@ -1,3 +1,5 @@
+package webec
+
 class MultiplicationCircleController {
     static int radius = 200
     static int cx = radius
@@ -9,8 +11,8 @@ class MultiplicationCircleController {
             circleModel.lines.add( new Line (
                 x1: xValueOf(i, circleModel.segmentCount),
                 y1: yValueOf(i, circleModel.segmentCount),
-                x2: xValueOf(i * 2, circleModel.segmentCount), // todo: change according to the tableBase
-                y2: yValueOf(i * 2, circleModel.segmentCount)  // todo: change according to the tableBase
+                x2: xValueOf(i * circleModel.tableBase, circleModel.segmentCount),
+                y2: yValueOf(i * circleModel.tableBase, circleModel.segmentCount)
             ))
         }
         render view:"show", model:[circleInstance: circleModel]
@@ -30,7 +32,7 @@ class MultiplicationCircleController {
 class MultiplicationCircleModel {
     int segmentCount = 10
 
-    // todo: add a property tableBase such that we can modify and refer to it
+    int tableBase = 2
 
     List<Line> lines = Collections.EMPTY_LIST
 }
