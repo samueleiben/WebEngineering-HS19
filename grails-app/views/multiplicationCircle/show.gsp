@@ -17,12 +17,11 @@
     <script>
         function increase(valueName) {
             var input = document.getElementById(valueName);
-            input.value = parseInt(input.value) + 1 ;
+            input.value = Number(input.value) + 1 ;
         }
-
         function decrease(valueName) {
             var input = document.getElementById(valueName);
-            input.value = parseInt(input.value) - 1 ;
+            input.value = Number(input.value) - 1 ;
         }
 
     </script>
