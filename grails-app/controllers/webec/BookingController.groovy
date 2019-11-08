@@ -1,5 +1,7 @@
 package webec
 
+import grails.converters.JSON
+
 class BookingController {
 
     def probiere() {
@@ -10,4 +12,13 @@ class BookingController {
         render text: result.toString()
     }
     static scaffold = Booking
+
+    def probierejson() {
+        def room = Room.findByName("1.313")
+        def lastNames = Booking.findAllByRoom(room).booker.lastName.unique()
+
+        def booker = Person.findByLastName("Holz")
+        def bookings = Booking.findAllByBooker(booker)*.room
+        render contentType: "text/json" , text: lastNames as JSON
+    }
 }
