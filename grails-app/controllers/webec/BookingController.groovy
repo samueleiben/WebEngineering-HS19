@@ -1,7 +1,10 @@
 package webec
 
+//import grails.plugin.springsecurity.annotation.Secured
+
 import grails.converters.JSON
 
+//@Secured('ROLE_USER') // when using annotations
 class MyBookingController {
 
     def probiere() {
